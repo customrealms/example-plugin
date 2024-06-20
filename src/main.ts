@@ -22,6 +22,7 @@ ServerCommands.register('/gms', (player) => {
 // Every 5 seconds, send a message to all online players.
 setInterval(() => {
     Bukkit.getServer().getOnlinePlayers().forEach(player => {
-        player.sendMessage('CustomRealms v2.0 is here!');
+        player.sendTitle('Welcome to CustomRealms', 'v2.0');
+        player.playSound(player.getLocation(), org.bukkit.Sound.ENTITY_CAT_PURREOW, 1, 1);
     });
 }, 5000);
