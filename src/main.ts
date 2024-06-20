@@ -1,7 +1,7 @@
 import { ServerCommands, ServerEvents } from '@customrealms/core';
 
 ServerEvents.register<org.bukkit.event.player.PlayerJoinEvent>('org.bukkit.event.player.PlayerJoinEvent', event => {
-    event.getPlayer().sendMessage('Welcome to the server!');
+    event.getPlayer().sendMessage(`${org.bukkit.ChatColor.BOLD}Welcome to the server!`);
 });
 
 ServerEvents.register<org.bukkit.event.player.PlayerInteractEvent>('org.bukkit.event.player.PlayerInteractEvent', event => {
@@ -19,7 +19,7 @@ ServerCommands.register('/gms', (player) => {
 
 setInterval(() => {
     const players = org.bukkit.Bukkit.getServer().getOnlinePlayers();
-    Array.prototype.forEach.call(players, (player) => {
+    players.forEach(player => {
         player.sendMessage('Hello world!');
     });
 }, 2000);

@@ -10,8 +10,16 @@
 	"keywords": [],
 	"author": "",
 	"license": "MIT",
+	"commands": {
+		"gmc": {
+			"description": "Set your game mode to creative"
+		},
+		"gms": {
+			"description": "Set your game mode to survival"
+		}
+	},
 	"dependencies": {
-		"@customrealms/core": "2.0.4"
+		"@customrealms/core": "2.0.5"
 	},
 	"devDependencies": {
 		"@customrealms/cli": "^2.0.0",
