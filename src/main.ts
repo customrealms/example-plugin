@@ -1,4 +1,4 @@
-import { ServerCommands, ServerEvents } from '@customrealms/core';
+import { Bukkit, ServerCommands, ServerEvents } from '@customrealms/core';
 
 // When a player joins, send them a welcome message.
 ServerEvents.register<org.bukkit.event.player.PlayerJoinEvent>('org.bukkit.event.player.PlayerJoinEvent', event => {
@@ -19,10 +19,9 @@ ServerCommands.register('/gms', (player) => {
     player.setGameMode(org.bukkit.GameMode.SURVIVAL);
 });
 
-// Every 2 seconds, send a 'Hello World' message to all online players.
+// Every 5 seconds, send a message to all online players.
 setInterval(() => {
-    const players = org.bukkit.Bukkit.getServer().getOnlinePlayers();
-    players.forEach(player => {
-        player.sendMessage('Hello world!');
+    Bukkit.getServer().getOnlinePlayers().forEach(player => {
+        player.sendMessage('CustomRealms v2.0 is here!');
     });
-}, 2000);
+}, 5000);
