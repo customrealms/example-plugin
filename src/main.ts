@@ -19,7 +19,6 @@ ServerCommands.register('/gms', (player) => {
     player.setGameMode(org.bukkit.GameMode.SURVIVAL);
 });
 
-// Every 5 seconds, send a message to all online players.
 setInterval(() => {
     Bukkit.getServer().getOnlinePlayers().forEach(player => {
         player.sendTitle('Welcome to CustomRealms', 'v2.0');
