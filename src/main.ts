@@ -1,24 +1,25 @@
-import { PlayerChatEvent, ServerCommands, ServerEvents } from '@customrealms/core';
+import { ServerCommands, ServerEvents } from '@customrealms/core';
 
-// Listen for player chat events
-ServerEvents.register(PlayerChatEvent, event => {
-
-    const player = event.getPlayer();
-    const message = event.getMessage();
-
-    // Log something to the server console
-    console.log(`Player "${player.getName()}" said "${message}"`);
-
-    // Send a response to the player who chatted
-    player.sendMessage(`I see that you said "${message}"`)
-
+ServerEvents.register<org.bukkit.event.player.PlayerJoinEvent>('org.bukkit.event.player.PlayerJoinEvent', event => {
+    event.getPlayer().sendMessage('Welcome to the server!');
 });
 
-// Listen for /title commands
-ServerCommands.register('/title {message}...', (player, call) => {
-
-    const message = call.getPlaceholder('message')!;
-
-    player.sendTitle(message, null, 20, 20, 20);
-
+ServerEvents.register<org.bukkit.event.player.PlayerInteractEvent>('org.bukkit.event.player.PlayerInteractEvent', event => {
+    const location = event.getPlayer().getTargetBlockExact(100).getLocation();
+    location.getWorld().strikeLightning(location);
 });
+
+ServerCommands.register('/gmc', (player) => {
+    player.setGameMode(org.bukkit.GameMode.CREATIVE);
+});
+
+ServerCommands.register('/gms', (player) => {
+    player.setGameMode(org.bukkit.GameMode.SURVIVAL);
+});
+
+setInterval(() => {
+    const players = org.bukkit.Bukkit.getServer().getOnlinePlayers();
+    Array.prototype.forEach.call(players, (player) => {
+        player.sendMessage('Hello world!');
+    });
+}, 2000);
