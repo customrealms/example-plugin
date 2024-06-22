@@ -19,7 +19,7 @@
 		}
 	},
 	"dependencies": {
-		"@customrealms/core": "2.0.6"
+		"@customrealms/core": "2.0.10"
 	},
 	"devDependencies": {
 		"@customrealms/cli": "^2.0.0",
