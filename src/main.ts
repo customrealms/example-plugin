@@ -36,7 +36,7 @@ ServerCommands.register('/stairs {#:count} {S:material}', (player, call) => {
 });
 
 ServerCommands.register('/inv', (player) => {
-    const inventory = Bukkit.createInventory(player as any, org.bukkit.event.inventory.InventoryType.CHEST);
+    const inventory = Bukkit.createInventory(player, org.bukkit.event.inventory.InventoryType.CHEST);
     const materials = [
         org.bukkit.Material.DIAMOND_SWORD,
         org.bukkit.Material.DIAMOND_CHESTPLATE,
@@ -58,7 +58,7 @@ ServerCommands.register('/invsee {P:player}', (player, call) => {
     }
 
     const inventory = target.getInventory();
-    player.openInventory(inventory as any);
+    player.openInventory(inventory);
 });
 
 ServerCommands.register('/nether', (player) => {
