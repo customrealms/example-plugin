@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "",
 	"scripts": {
-		"build:jar": "crx build -o ./dist/ExamplePlugin.jar",
+		"build": "crx build -o ./dist/ExamplePlugin.jar",
 		"serve": "crx run",
 		"clean": "rm -rf ./dist"
 	},

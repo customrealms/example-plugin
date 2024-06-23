@@ -9,7 +9,7 @@ Run `npm install` to make sure all needed dependencies are installed.
 ### Building a JAR file
 
 ```sh
-npm run build:jar
+npm run build
 ```
 
 The JAR file will be put into `dist/ExamplePlugin.jar` in your project.
