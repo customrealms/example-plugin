@@ -1,4 +1,4 @@
-import { ServerCommands, ServerEvents, Bukkit } from '@customrealms/core';
+import { Bukkit, ServerCommands, ServerEvents } from '@customrealms/core';
 import { buildStairs } from './stairs';
 
 const ChatColor = org.bukkit.ChatColor;
@@ -21,6 +21,9 @@ ServerCommands.register('/gmc', (player) => {
 });
 ServerCommands.register('/gms', (player) => {
     player.setGameMode(org.bukkit.GameMode.SURVIVAL);
+});
+ServerCommands.register('/gmsp', (player) => {
+    player.setGameMode(org.bukkit.GameMode.SPECTATOR);
 });
 
 ServerCommands.register('/stairs {#:count} {S:material}', (player, call) => {
