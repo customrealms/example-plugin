@@ -1,0 +1,32 @@
+name: ExamplePlugin
+main: ./src/main.ts
+
+commands:
+  gmsp:
+    description: Set your gamemode to spectator
+    permission: exampleplugin.gmsp
+  gms:
+    description: Set your gamemode to survival
+    permission: exampleplugin.gms
+  gmc:
+    description: Set your gamemode to creative
+    permission: exampleplugin.gmc
+  stairs:
+  kit:
+    description: Get a kit of diamond gear
+  invsee:
+    description: View the inventory of another player
+  nether:
+    description: Teleport to the nether
+
+permissions:
+  exampleplugin.*:
+    description: Gives access to all ExamplePlugin commands
+    default: op
+    children:
+      exampleplugin.gmsp:
+        description: Allows the player to use the /gmsp command
+      exampleplugin.gms:
+        description: Allows the player to use the /gms command
+      exampleplugin.gmc:
+        description: Allows the player to use the /gmc command

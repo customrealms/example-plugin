@@ -16,17 +16,25 @@ ServerEvents.register(org.bukkit.event.player.PlayerInteractEvent, event => {
 });
 
 // Register two commands for changing the player's game mode.
-ServerCommands.register('/gmc', (player) => {
+ServerCommands.register('/gmc', (sender, call) => {
+    const player = call.getPlayer()!;
+    if (!player.hasPermission('exampleplugin.gmc')) {
+        player.sendMessage('You do not have permission to use this command');
+        return;
+    }
     player.setGameMode(org.bukkit.GameMode.CREATIVE);
 });
-ServerCommands.register('/gms', (player) => {
+ServerCommands.register('/gms', (sender, call) => {
+    const player = call.getPlayer()!;
     player.setGameMode(org.bukkit.GameMode.SURVIVAL);
 });
-ServerCommands.register('/gmsp', (player) => {
+ServerCommands.register('/gmsp', (sender, call) => {
+    const player = call.getPlayer()!;
     player.setGameMode(org.bukkit.GameMode.SPECTATOR);
 });
 
-ServerCommands.register('/stairs {#:count} {S:material}', (player, call) => {
+ServerCommands.register('/stairs {#:count} {S:material}', (sender, call) => {
+    const player = call.getPlayer()!;
     const count = call.getNumericPlaceholder('count')!;
     const material = org.bukkit.Material.matchMaterial(call.getPlaceholder('material')!);
     if (!material || !material.isBlock()) {
@@ -37,7 +45,8 @@ ServerCommands.register('/stairs {#:count} {S:material}', (player, call) => {
     buildStairs(player.getLocation(), count, material);
 });
 
-ServerCommands.register('/inv', (player) => {
+ServerCommands.register('/kit', (sender, call) => {
+    const player = call.getPlayer()!;
     const inventory = Bukkit.createInventory(player, org.bukkit.event.inventory.InventoryType.CHEST);
     const materials = [
         org.bukkit.Material.DIAMOND_SWORD,
@@ -52,7 +61,8 @@ ServerCommands.register('/inv', (player) => {
     player.openInventory(inventory);
 });
 
-ServerCommands.register('/invsee {P:player}', (player, call) => {
+ServerCommands.register('/invsee {P:player}', (sender, call) => {
+    const player = call.getPlayer()!;
     const target = call.getPlayerPlaceholder('player');
     if (!target) {
         player.sendMessage('Invalid player');
@@ -63,7 +73,8 @@ ServerCommands.register('/invsee {P:player}', (player, call) => {
     player.openInventory(inventory);
 });
 
-ServerCommands.register('/nether', (player) => {
+ServerCommands.register('/nether', (sender, call) => {
+    const player = call.getPlayer()!;
     const loc = Bukkit.getWorld('world_nether')?.getSpawnLocation();
     if (!loc) return;
     player.teleport(loc);
