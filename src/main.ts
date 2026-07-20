@@ -79,3 +79,10 @@ ServerCommands.register('/nether', (sender, call) => {
     if (!loc) return;
     player.teleport(loc);
 });
+
+ServerCommands.register('/overworld', (sender, call) => {
+    const player = call.getPlayer()!;
+    const loc = Bukkit.getWorld('world')?.getSpawnLocation();
+    if (!loc) return;
+    player.teleport(loc);
+});
