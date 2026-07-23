@@ -1,21 +1,8 @@
 {
-	"compileOnSave": false,
 	"compilerOptions": {
 		"strict": true,
-		"rootDir": "./src",
-		"outDir": "./dist",
-		"sourceMap": false,
-		"declaration": false,
-		"module": "esnext",
-		"moduleResolution": "node",
-		"emitDecoratorMetadata": true,
-		"resolveJsonModule": true,
-		"experimentalDecorators": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"importHelpers": true,
-		"target": "ES6",
-		"lib": ["es2018", "dom"]
+		"lib": ["ES2018"],
+		"types": ["@customrealms/runtime-types"]
 	},
 	"include": ["src/**/*.ts"]
 }
