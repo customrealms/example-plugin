@@ -11,10 +11,10 @@
 	"author": "",
 	"license": "MIT",
 	"dependencies": {
-		"@customrealms/core": "^2.0.27"
+		"@customrealms/core": "2.0.35"
 	},
 	"devDependencies": {
-		"@customrealms/cli": "^2.0.20",
-		"@customrealms/runtime-types": "^1.0.2"
+		"@customrealms/cli": "2.0.25",
+		"@customrealms/runtime-types": "2.0.20"
 	}
 }
